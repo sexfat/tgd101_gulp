@@ -30,5 +30,21 @@ function mvimages(){
  exports.mvimg = mvimages;
 
 
+ // 同步跟異步
+
+
+function taskA(cb){
+   console.log('A 任務')
+   cb();
+}
+
+function taskB(cb){
+    console.log('B 任務')
+    cb();
+ }
+
+ exports.async = series(taskA ,taskB);//
+ exports.sync =parallel(taskA ,taskB);//
+
 
 
