@@ -16,12 +16,19 @@ function tasklog(cb){
 exports.log = tasklog
 
 // src dest
-
+// copy html
 function mvfile(){
    return src('./*.html').pipe(dest('dist'));
 }
+exports.mvhtml = mvfile;
 
-exports.mv = mvfile;
+// copy images
+function mvimages(){
+    return src('images/*.*').pipe(dest('dist/images'));
+ }
+
+ exports.mvimg = mvimages;
+
 
 
 
