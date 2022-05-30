@@ -1,11 +1,18 @@
 body {
   margin: 5px;
+  background-color: rgb(20, 255, 224);
+  height: 5000px;
   padding: 0;
+  .login{
+     font-size: 100px;
+     color: #fff;
+
+  }
   .wrapper {
     width: 1200px;
      margin: 0 auto;
      h1 {
-       font-size: 20px;
+       font-size: 40px;
           
      }
   }

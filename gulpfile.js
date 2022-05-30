@@ -124,7 +124,35 @@ function watchfile(){
   watch(['./src/images/*.*','./src/images/**/*.*'],  mvimages)
 }
 
-exports.w = series(parallel(sassstyle, includeHTML , miniJs ,mvimages), watchfile)
+exports.w = series(parallel(sassstyle, includeHTML , miniJs ,mvimages), watchfile) 
+// 先執行sass/ html/ js /images編譯  在執行warchfile監看
+
+
+//瀏覽器同步
+
+
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
+
+
+function browser(done) {
+    browserSync.init({
+        server: {
+            baseDir: "./dist",
+            index: "index.html"
+        },
+        port: 3000
+    });
+    watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on('change' , reload)// sass
+    watch(['./src/*.html' , './src/layout/*.html'] , includeHTML).on('change' , reload) // html
+    watch('./src/js/*.js' , miniJs).on('change' , reload) // js
+    watch(['./src/images/*.*','./src/images/**/*.*'],  mvimages).on('change' , reload)
+    done();
+}
+
+
+exports.default =  series(parallel(sassstyle, includeHTML , miniJs ,mvimages), browser) 
+
 
 
 
