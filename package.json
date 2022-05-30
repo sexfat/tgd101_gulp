@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "1..安裝套件": "npm install",
+    "2. 同步瀏覽器": "gulp"
   },
   "keywords": [],
   "author": "",

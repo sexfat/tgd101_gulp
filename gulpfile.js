@@ -27,9 +27,6 @@ const uglify = require('gulp-uglify');
 function miniJs() {
     return src('src/js/*.js')
         .pipe(uglify())
-        .pipe(rename({
-            extname: '.min.js'
-        }))
         .pipe(dest('dist/js'))
 }
 
