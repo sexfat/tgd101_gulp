@@ -109,13 +109,21 @@ const fileinclude = require('gulp-file-include');
         .pipe(dest('dist')); // 目的地
 }
 
-exports.html = includeHTML;
+exports.html = includeHTML; // 任務輸出 js module
 
-exports.all = parallel(includeHTML , sassstyle);
-
-
+exports.all = parallel(includeHTML , sassstyle, miniJs);// 同步
 
 
+
+
+// 監看
+
+function watchfile(){
+  // watch(['','',''] , callback)
+  watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
+}
+
+exports.w = watchfile
 
 
 
