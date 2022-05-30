@@ -120,7 +120,7 @@ exports.all = parallel(includeHTML , sassstyle, miniJs);// 同步
 
 function watchfile(){
   // watch(['','',''] , callback)
-  watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
+  watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)// sass
 }
 
 exports.w = watchfile
