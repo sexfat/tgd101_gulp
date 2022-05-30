@@ -96,3 +96,20 @@ function sassstyle() {
 }
 
 exports.style = sassstyle;
+
+//html template
+
+
+const fileinclude = require('gulp-file-include');
+
+exports.html =  function includeHTML() {
+    return src('*.html') //  來源
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest('dist')); // 目的地
+}
+
+
+
