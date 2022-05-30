@@ -18,7 +18,7 @@ exports.log = tasklog
 // src dest
 
 function mvfile(){
-   return src('./index.html').pipe(dest('html'));
+   return src('./*.html').pipe(dest('dist'));
 }
 
 exports.mv = mvfile;
