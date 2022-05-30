@@ -43,8 +43,13 @@ function taskB(cb){
     cb();
  }
 
- exports.async = series(taskA ,taskB);//
- exports.sync =parallel(taskA ,taskB);//
+ exports.async = series(taskA ,taskB);//異步
+ exports.sync =parallel(taskA ,taskB);//同步
 
+ // mini css
+
+ function minicss(){
+   return src('css/*.css').pipe(dest('dist/css'))
+ }
 
 
