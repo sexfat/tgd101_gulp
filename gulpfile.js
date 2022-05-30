@@ -45,25 +45,32 @@ function taskB(cb){
 
  exports.async = series(taskA ,taskB);//異步
  exports.sync =parallel(taskA ,taskB);//同步
-
+// 改名
+const rename = require('gulp-rename');
  // mini css
  const cleanCSS = require('gulp-clean-css'); 
 
  function minicss(){
    return src('css/*.css')
-   .pipe(cleanCSS()) 
+   .pipe(cleanCSS())
+   .pipe(rename({
+    extname: '.min.css'
+   }))
    .pipe(dest('dist/css'))
  }
 
  exports.css =minicss
 
- // mini js
+ // mini js 壓縮js 順便檢查js
  
 const uglify = require('gulp-uglify');
 
  function miniJs(){
     return src('js/*.js')
     .pipe(uglify())
+    .pipe(rename({
+        extname: '.min.js'
+       }))
     .pipe(dest('dist/js'))
  }
 
