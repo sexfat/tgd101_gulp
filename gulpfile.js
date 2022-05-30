@@ -98,11 +98,9 @@ function sassstyle() {
 exports.style = sassstyle;
 
 //html template
-
-
 const fileinclude = require('gulp-file-include');
 
-exports.html =  function includeHTML() {
+ function includeHTML() {
     return src('src/*.html') //  來源
         .pipe(fileinclude({
             prefix: '@@',
@@ -110,6 +108,14 @@ exports.html =  function includeHTML() {
         }))
         .pipe(dest('dist')); // 目的地
 }
+
+exports.html = includeHTML;
+
+exports.all = parallel(includeHTML , sassstyle);
+
+
+
+
 
 
 
