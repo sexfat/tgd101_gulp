@@ -66,7 +66,7 @@ exports.css = minicss
 const uglify = require('gulp-uglify');
 
 function miniJs() {
-    return src('js/*.js')
+    return src('src/js/*.js')
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
@@ -82,7 +82,7 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
 function sassstyle() {
-    return src('sass/*.scss')
+    return src('src/sass/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError)) //壓縮
         //.pipe(sass.sync().on('error', sass.logError))
@@ -103,7 +103,7 @@ exports.style = sassstyle;
 const fileinclude = require('gulp-file-include');
 
 exports.html =  function includeHTML() {
-    return src('*.html') //  來源
+    return src('src/*.html') //  來源
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
