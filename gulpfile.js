@@ -57,4 +57,15 @@ function taskB(cb){
 
  exports.css =minicss
 
+ // mini js
+ 
+const uglify = require('gulp-uglify');
+
+ function miniJs(){
+    return src('js/*.js')
+    .pipe(uglify())
+    .pipe(dest('dist/js'))
+ }
+
+ exports.js =miniJs
 
