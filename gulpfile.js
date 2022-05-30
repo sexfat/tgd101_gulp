@@ -24,7 +24,7 @@ exports.mvhtml = mvfile;
 
 // copy images
 function mvimages() {
-    return src('images/*.*').pipe(dest('dist/images'));
+    return src(['./src/images/*.*','./src/images/**/*.*']).pipe(dest('dist/images'));
 }
 
 exports.mvimg = mvimages;
@@ -114,16 +114,17 @@ exports.html = includeHTML; // 任務輸出 js module
 exports.all = parallel(includeHTML , sassstyle, miniJs);// 同步
 
 
-
-
 // 監看
 
 function watchfile(){
   // watch(['','',''] , callback)
   watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)// sass
+  watch(['./src/*.html' , './src/layout/*.html'] , includeHTML) // html
+  watch('./src/js/*.js' , miniJs) // js
+  watch(['./src/images/*.*','./src/images/**/*.*'],  mvimages)
 }
 
-exports.w = watchfile
+exports.w = series(parallel(sassstyle, includeHTML , miniJs ,mvimages), watchfile)
 
 
 
