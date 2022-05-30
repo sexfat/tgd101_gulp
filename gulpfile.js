@@ -47,9 +47,14 @@ function taskB(cb){
  exports.sync =parallel(taskA ,taskB);//同步
 
  // mini css
+ const cleanCSS = require('gulp-clean-css'); 
 
  function minicss(){
-   return src('css/*.css').pipe(dest('dist/css'))
+   return src('css/*.css')
+   .pipe(cleanCSS()) 
+   .pipe(dest('dist/css'))
  }
+
+ exports.css =minicss
 
 
