@@ -76,3 +76,19 @@ const uglify = require('gulp-uglify');
 
  exports.js =miniJs
 
+// sass 編譯
+
+const sass = require('gulp-sass')(require('sass'));
+
+function sassstyle(){
+  return src('sass/*.scss')
+  .pipe(sass.sync().on('error', sass.logError))
+  .pipe(cleanCSS())
+//   .pipe(rename({
+//     extname: '.min.css'
+//    }))
+  .pipe(dest('./dist/css'));
+
+}
+
+exports.style = sassstyle;
