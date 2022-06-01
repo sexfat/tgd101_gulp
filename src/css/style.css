@@ -1,0 +1,9 @@
+body .wrapper{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+body h1 {
+   font-size: 40px;
+   color: aqua;
+}
