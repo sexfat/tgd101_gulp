@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "1..安裝套件": "npm install",
-    "2. 同步瀏覽器": "gulp"
+    "2. 開發(瀏覽器)": "gulp",
+    "3. 上線打包": "gulp package"
   },
   "keywords": [],
   "author": "",

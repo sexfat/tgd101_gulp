@@ -126,11 +126,11 @@ function browser(done) {
 const imagemin = require('gulp-imagemin');
 
 function min_images(){
-    return src('src/images/*.*')
+    return src(['src/images/*.*' , 'src/images/**/*.*'])
     .pipe(imagemin([
         imagemin.mozjpeg({quality: 50, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
     ]))
-    .pipe(dest('dist/images/min'))
+    .pipe(dest('dist/images'))
 }
 
 
@@ -147,9 +147,11 @@ exports.c = clear;
 
 exports.minify = min_images;
 
-
+//開發用
 exports.default =  series(parallel(sassstyle, includeHTML , miniJs ,mvimages), browser) 
 
+//上線用
+exports.package = series(clear , parallel(sassstyle , includeHTML , miniJs , min_images))
 
 
 
