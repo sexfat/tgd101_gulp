@@ -23,13 +23,28 @@ exports.mvimg = mvimages;
 // mini js 壓縮js 順便檢查js
 
 const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
 
 function miniJs() {
     return src('src/js/*.js')
         .pipe(uglify())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(dest('dist/js'))
 }
 
+
+// test js babel6 -> 5
+function babel5() {
+    return src('src/js/*.js')
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(dest('dist/js/test'));
+}
+
+exports.jsex =babel5
 exports.js = miniJs
 
 // sass 編譯
