@@ -113,7 +113,7 @@ const imagemin = require('gulp-imagemin');
 function min_images(){
     return src('src/images/*.*')
     .pipe(imagemin([
-        imagemin.mozjpeg({quality: 70, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+        imagemin.mozjpeg({quality: 50, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
     ]))
     .pipe(dest('dist/images/min'))
 }
