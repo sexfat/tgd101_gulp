@@ -5,6 +5,20 @@ console.log(aa(5));
 
 // jquery
 import $ from 'jquery';
+import { gsap } from "gsap";
+
+gsap.to('.logo' ,{
+   duration:1 ,
+x: 300,
+y :10,
+repeat: -1,
+yoyo : true,
+rotation:360
+
+
+})
+
+
 
 import './css/header.css';
 import './css/footer.css';

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "安裝套件": "npm i",
-    "開發" : "webpack",
-    "web-demo" :"webpack-dev-server"
+    "開發": "webpack",
+    "web-demo": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "webpack-dev-server": "^3.11.3"
   },
   "dependencies": {
+    "gsap": "^3.10.4",
     "jquery": "^3.6.0",
     "vue": "^2.6.14"
   }
