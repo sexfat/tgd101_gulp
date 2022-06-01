@@ -36,6 +36,7 @@ exports.js = miniJs
 
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 
 function sassstyle() {
     return src('src/sass/*.scss')
@@ -46,6 +47,9 @@ function sassstyle() {
         //   .pipe(rename({
         //     extname: '.min.css'
         //    }))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
         .pipe(sourcemaps.write())
         .pipe(dest('./dist/css'));
 
