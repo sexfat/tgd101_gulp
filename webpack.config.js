@@ -11,7 +11,8 @@ const {
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.js', // index html
+    about: './src/about.js' // about html
   },               // 入口文件
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -67,7 +68,15 @@ module.exports = {
       //來源
       filename: 'index.html'
       // 目的地
-    }), // html 打包
+    }), // index html 打包
+    new HtmlWebpackPlugin({
+      chunks: ['about'],  //選擇注入資源 chunk
+      inject: 'body', //預設<body> js </body>  head or body
+      template: './src/about.html',
+      //來源
+      filename: 'about.html'
+      // 目的地
+    }), // about html 打包
     new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
