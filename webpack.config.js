@@ -66,8 +66,8 @@ module.exports = {
     new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-          })
-  ],             // 對應的插件             // 對應的插件
+          }) // 全域使用 jquery
+  ], // 對應的插件
   devServer: {
     contentBase: './dist',
     host: 'localhost',
