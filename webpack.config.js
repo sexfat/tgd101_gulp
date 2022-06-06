@@ -1,5 +1,6 @@
 // 套件引入
 const path = require('path');
+const webpack  = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
@@ -61,7 +62,11 @@ module.exports = {
       //來源
       filename: 'index.html'
       // 目的地
-    }) // html 打包
+    }), // html 打包
+    new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+          })
   ],             // 對應的插件             // 對應的插件
   devServer: {
     contentBase: './dist',

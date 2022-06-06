@@ -4,7 +4,7 @@ function aa(x){
 console.log(aa(5));
 
 // jquery
-import $ from 'jquery';
+// import $ from 'jquery';
 import { gsap } from "gsap";
 
 gsap.to('.logo' ,{
