@@ -11,7 +11,7 @@ gsap.to('.logo' ,{
    duration:1 ,
 x: 300,
 y :10,
-repeat: -1,
+repeat: 2,
 yoyo : true,
 rotation:360
 
