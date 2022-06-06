@@ -50,6 +50,11 @@ module.exports = {
       ]
 
     },          // 處裡對應模組
+  resolve: {
+        alias: {
+           vue: 'vue/dist/vue.js'
+        }
+      },  // 解決 vue 路徑問題
   plugins: [
     new CleanWebpackPlugin(), // 清除舊檔案
     new MiniCssExtractPlugin({
