@@ -1,0 +1,20 @@
+$color : (
+   "primary" : #1A242A,
+   "secondary" : #445F6F
+); 
+
+
+
+// text color
+@each $key , $val in $color {
+    .text-#{$key} {
+       color : $val
+    }
+}
+
+
+@each $key , $val in $color {
+   .bg-#{$key} {
+      background-color: $val;
+   }
+}
