@@ -1,7 +1,26 @@
 $color : (
-   "primary" : #1A242A,
-   "secondary" : #445F6F
+   "primary" : #0fa3ff,
+   "secondary" : #445F6F,
+   "tretiary" :  #333,
+   "yellow"  :  #FFD700
 ); 
+
+
+$space : (
+  "4" : 4px,
+  "8" : 8px,
+  "16" : 16px,
+  "20" : 20px,
+  "24" : 24px,
+);
+
+@each $key , $val in $space {
+    .marginTop#{$key} {
+       margin-top : $val
+    }
+}
+
+
 
 
 
@@ -12,9 +31,26 @@ $color : (
     }
 }
 
-
+// bg color
 @each $key , $val in $color {
    .bg-#{$key} {
       background-color: $val;
    }
 }
+
+
+
+
+$basefontSize : 16px;
+
+
+body {
+  font-size: $basefontSize;
+}
+
+.h1title {
+  font-size:  2.5rem;
+}
+
+
+
